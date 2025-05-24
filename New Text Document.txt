@@ -39,3 +39,75 @@ CREATE TABLE Enrollment (
     FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID),
     FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID)
 );
+
+INSERT INTO Student (Student_ID, Name, Email, Major, Phone) 
+VALUES (11, 'Ajay', 'ajaymoute.edn', 'MCA', '8197316319');
+
+INSERT INTO Student (Student_ID, Name, Email, Major, Phone) 
+VALUES (12, 'Abhi', 'abhimsriuto.edu', 'MCA', '9900348978');
+
+INSERT INTO Student (Student_ID, Name, Email, Major, Phone) 
+VALUES (13, 'Monisha', 'monishemsit.edu', 'MBA', '9876545400');
+
+INSERT INTO Student (Student_ID, Name, Email, Major, Phone) 
+VALUES (14, 'Mamu', 'marm@gmail.edu', 'MBA', '9876575450');
+
+INSERT INTO Student (Student_ID, Name, Email, Major, Phone) 
+VALUES (15, 'Nuthi', 'muth@mor.edu', 'MTech', '9876575450');
+
+INSERT INTO Student (Student_ID, Name, Email, Major, Phone) 
+VALUES (16, 'Jagath', 'jagathemurit.edu', 'MTech', '9534794187');
+
+
+INSERT INTO Department (Dept_ID, Dept_Name) VALUES (31, 'MCA');
+INSERT INTO Department (Dept_ID, Dept_Name) VALUES (32, 'MBA');
+INSERT INTO Department (Dept_ID, Dept_Name) VALUES (33, 'MTech');
+
+
+INSERT INTO Course (Course_ID, Title, Credits, Dept_ID) 
+VALUES (1, 'Datastructure', 3, 31);
+
+INSERT INTO Course (Course_ID, Title, Credits, Dept_ID) 
+VALUES (2, 'Python', 3, 31);
+
+INSERT INTO Course (Course_ID, Title, Credits, Dept_ID) 
+VALUES (3, 'AI', 3, 33);
+
+INSERT INTO Course (Course_ID, Title, Credits, Dept_ID) 
+VALUES (4, 'ML & DL', 4, 33);
+
+INSERT INTO Course (Course_ID, Title, Credits, Dept_ID) 
+VALUES (5, 'Business', 3, 33);
+
+INSERT INTO Course (Course_ID, Title, Credits, Dept_ID) 
+VALUES (6, 'Hub', 4, 33);
+
+
+INSERT INTO Enrollment (Student_ID, Course_ID, Semester, Grade) 
+VALUES (11, 2, 'Spring 2025', 'A');
+
+INSERT INTO Enrollment (Student_ID, Course_ID, Semester, Grade) 
+VALUES (12, 3, 'Spring 2025', 'B');
+
+INSERT INTO Enrollment (Student_ID, Course_ID, Semester, Grade) 
+VALUES (13, 4, 'Spring 2025', 'C');
+
+INSERT INTO Enrollment (Student_ID, Course_ID, Semester, Grade) 
+VALUES (14, 1, 'Spring 2025', 'A');
+
+INSERT INTO Enrollment (Student_ID, Course_ID, Semester, Grade) 
+VALUES (15, 5, 'Spring 2025', 'F');
+
+INSERT INTO Enrollment (Student_ID, Course_ID, Semester, Grade) 
+VALUES (16, 6, 'Spring 2025', 'B');
+
+
+INSERT INTO Instructor (Instructor_ID, Name, Dept_ID)
+VALUES (1001, 'Swathi', 31);
+
+INSERT INTO Instructor (Instructor_ID, Name, Dept_ID)
+VALUES (1002, 'Shre', 32);
+
+INSERT INTO Instructor (Instructor_ID, Name, Dept_ID)
+VALUES (1003, 'Gutha', 33);
+
