@@ -1,0 +1,117 @@
+-- Department Table
+CREATE TABLE Department (
+    Dept_ID INT PRIMARY KEY,
+    Dept_Name VARCHAR(100) NOT NULL
+);
+
+-- Student Table
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Email VARCHAR(100),
+    Major VARCHAR(100)
+);
+
+-- Add Phone column to Student table
+ALTER TABLE Student
+ADD Phone VARCHAR(20);
+
+-- Instructor Table
+CREATE TABLE Instructor (
+    Instructor_ID INT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Dept_ID INT,
+    FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID)
+);
+
+-- Course Table
+CREATE TABLE Course (
+    Course_ID INT PRIMARY KEY,
+    Title VARCHAR(100) NOT NULL,
+    Credits INT,
+    Dept_ID INT,
+    FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID)
+);
+
+-- Enrollment Table (Associative Relationship)
+CREATE TABLE Enrollment (
+    Student_ID INT,
+    Course_ID INT,
+    Semester VARCHAR(50),
+    Grade VARCHAR(5),
+    PRIMARY KEY (Student_ID, Course_ID),
+    FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID),
+    FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID)
+);
+
+-- Insert Departments
+INSERT INTO Department (Dept_ID, Dept_Name) VALUES (31, 'MCA');
+INSERT INTO Department (Dept_ID, Dept_Name) VALUES (32, 'MBA');
+INSERT INTO Department (Dept_ID, Dept_Name) VALUES (33, 'MTech');
+
+-- Insert Students
+INSERT INTO Student (Student_ID, Name, Email, Major, Phone) 
+VALUES (11, 'Ajay', 'ajaymoute.edn', 'MCA', '8197316319');
+
+INSERT INTO Student (Student_ID, Name, Email, Major, Phone) 
+VALUES (12, 'Abhi', 'abhimsriuto.edu', 'MCA', '9900348978');
+
+INSERT INTO Student (Student_ID, Name, Email, Major, Phone) 
+VALUES (13, 'Monisha', 'monishemsit.edu', 'MBA', '9876545400');
+
+INSERT INTO Student (Student_ID, Name, Email, Major, Phone) 
+VALUES (14, 'Mamu', 'marm@gmail.edu', 'MBA', '9876575450');
+
+INSERT INTO Student (Student_ID, Name, Email, Major, Phone) 
+VALUES (15, 'Nuthi', 'muth@mor.edu', 'MTech', '9876575450');
+
+INSERT INTO Student (Student_ID, Name, Email, Major, Phone) 
+VALUES (16, 'Jagath', 'jagathemurit.edu', 'MTech', '9534794187');
+
+-- Insert Instructors
+INSERT INTO Instructor (Instructor_ID, Name, Dept_ID)
+VALUES (1001, 'Swathi', 31);
+
+INSERT INTO Instructor (Instructor_ID, Name, Dept_ID)
+VALUES (1002, 'Shre', 32);
+
+INSERT INTO Instructor (Instructor_ID, Name, Dept_ID)
+VALUES (1003, 'Gutha', 33);
+
+-- Insert Courses
+INSERT INTO Course (Course_ID, Title, Credits, Dept_ID) 
+VALUES (1, 'Datastructure', 3, 31);
+
+INSERT INTO Course (Course_ID, Title, Credits, Dept_ID) 
+VALUES (2, 'Python', 3, 31);
+
+INSERT INTO Course (Course_ID, Title, Credits, Dept_ID) 
+VALUES (3, 'AI', 3, 33);
+
+INSERT INTO Course (Course_ID, Title, Credits, Dept_ID) 
+VALUES (4, 'ML & DL', 4, 33);
+
+INSERT INTO Course (Course_ID, Title, Credits, Dept_ID) 
+VALUES (5, 'Business', 3, 33);
+
+INSERT INTO Course (Course_ID, Title, Credits, Dept_ID) 
+VALUES (6, 'Hub', 4, 33);
+
+-- Insert Enrollment Data
+INSERT INTO Enrollment (Student_ID, Course_ID, Semester, Grade) 
+VALUES (11, 2, 'Spring 2025', 'A');
+
+INSERT INTO Enrollment (Student_ID, Course_ID, Semester, Grade) 
+VALUES (12, 3, 'Spring 2025', 'B');
+
+INSERT INTO Enrollment (Student_ID, Course_ID, Semester, Grade) 
+VALUES (13, 4, 'Spring 2025', 'C');
+
+INSERT INTO Enrollment (Student_ID, Course_ID, Semester, Grade) 
+VALUES (14, 1, 'Spring 2025', 'A');
+
+INSERT INTO Enrollment (Student_ID, Course_ID, Semester, Grade) 
+VALUES (15, 5, 'Spring 2025', 'F');
+
+INSERT INTO Enrollment (Student_ID, Course_ID, Semester, Grade) 
+VALUES (16, 6, 'Spring 2025', 'B');
